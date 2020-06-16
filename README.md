@@ -1,44 +1,32 @@
-Instructions / Challenges
+MongoDB ToDo List
 
-1
-/**
- * models folder - schema store
- * user.js - schema - structure for our database
- * - what should our user db look like
- * - should it have email, name, password, shoe size
- * 
- * index.js - data that we want to add to our schema
- * 
- * mongodb - mongoose - npm i mongoose
- */
+Challenge:
+
+ * Create a todo list for a single user, no need to worry about
+user signup for this project.
+ * When the user goes to the website they should be presented with all 
+ of their todo list items, along side this, the user should be  able to 
+ add new items to the list, mark items as complete and delete items.
 
 
-2
-/*
- * create a movie schema that allows users to input their favourite film
- * lead/actors
- * release dates
- * rating on rottenTs
- * ways to stream
- * 
- * in a post request for a movies page
- * render all of the information in a list
- */
+Medium:
+
+ * Display all items when the user goes to the website
+ * Allow the user to mark the items as completed
+ * Allow the user to delete items
+ * Display a custom message if the user doesn't have any todo items
 
 
-3
-/**
- * render the information from the movie schema
- * display all movies on the movies page
- * search for a movie and display that 
- */
+Spicy:
+
+ * Allow the user to order the items by date created
+ * Allow the user to star items so that they are pinned to the top
+ * Allow the user to colour code items
 
 
- /**
-  * things to look at:
-  * 
+Things to look at:
+
   * difference between .find and .findOne
   * POST for the search - taking data from form and sending it to Mongo... using find or findOne
   * why does find need to be mapped over?
   * Looping through to display the info on HBS
-  */
