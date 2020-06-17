@@ -12,6 +12,8 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
     let { item, complete } = req.body;
+
+    // CREATING ITEMS
     let existingItem = await List.findOne({ item });
 
     if (existingItem){
@@ -32,7 +34,7 @@ router.post('/', async (req, res) => {
         complete: false
     })
 
-    await list.save();
+    await list.save(); // .save() to add an item || .remove to delete an item
     res.redirect('todolist');
 })
 
