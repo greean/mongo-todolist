@@ -1,0 +1,16 @@
+<h2>Your To Do list</h2>
+<br />
+{{ errorMessage }}
+<ul>
+    {{#each listArray}}
+        <li>
+            {{ this.item }} 
+        </li>
+    {{/each}}
+</ul>
+<br />
+<h2>Delete an item</h2>
+<form action="/remove" method="post">
+    <input type="text" name="item" placeholder="delete item">
+    <input type="submit" value="submit">
+</form>

@@ -9,6 +9,7 @@ const bodyParser = require('body-parser');
 
 const indexRouter = require('./routes/indexRouter');
 const todoRouter = require('./routes/todoRouter');
+const removeRouter = require('./routes/removeRouter');
 
 mongoose.connect(`${process.env.databaseURL}`, {
     useNewUrlParser: true,
@@ -28,6 +29,7 @@ app.set('view engine', '.hbs');
 
 app.use('/', indexRouter);
 app.use('/todolist', todoRouter);
+app.use('/remove', removeRouter);
 
 //localhost:3010/ - indexRouter
 //localhost:3010/todolist/ - todoRouter
