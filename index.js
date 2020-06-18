@@ -7,9 +7,11 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
+// ROUTERS
 const indexRouter = require('./routes/indexRouter');
 const todoRouter = require('./routes/todoRouter');
 const removeRouter = require('./routes/removeRouter');
+const updateRouter = require('./routes/updateRouter');
 
 mongoose.connect(`${process.env.databaseURL}`, {
     useNewUrlParser: true,
@@ -30,6 +32,7 @@ app.set('view engine', '.hbs');
 app.use('/', indexRouter);
 app.use('/todolist', todoRouter);
 app.use('/remove', removeRouter);
+app.use('/update', updateRouter);
 
 //localhost:3010/ - indexRouter
 //localhost:3010/todolist/ - todoRouter

@@ -12,6 +12,18 @@
     {{#each listArray}}
         <li>
             {{ this.item }} 
+            {{!-- <form action="/todolist" method="post">
+                <input type="submit" value="complete">
+            </form> --}}
+        </li>
+    {{/each}}
+</ul>
+<br />
+<h3>Completed tasks</h3>
+<ul>
+    {{#each completedArray}}
+        <li>
+            {{ this.item }}
         </li>
     {{/each}}
 </ul>

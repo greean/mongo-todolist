@@ -1,0 +1,24 @@
+<h2>Amend an item in the list</h2>
+{{ errorMessage }}
+<form action="/todolist" method="post">
+    <input type="text" name="item" placeholder="existing item">
+    <input type="text" name="amendto" placeholder="amend to"
+    <input type="text" name="complete" placeholder="complete">
+    <input type="checkbox" name="complete" placeholder="completed">
+    <input type="submit" value="submit">
+</form>
+<br />
+<h2>Your To Do list</h2>
+<br />
+<table class="center">
+    <tr>
+        <th scope="col">Task</th>
+        <th scope="col">Completed</th>
+    </tr>
+    {{#each listArray}}
+        <tr>
+            <td>{{ this.item }}</td>
+            <td>{{ this.complete }}</td>
+        </tr>
+    {{/each}}
+</table>

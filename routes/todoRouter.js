@@ -3,11 +3,15 @@ const router = Router();
 const List = require('../models/todolist');
 
 router.get('/', async (req, res) => {
-    let myList = await List.find({ }) // search database for all lists
-    let listArray = myList.map((list) => list.toObject());
-    // console.log(listArray);
+// Array for incomplete tasks 
+    const myList = await List.find({ complete: false, }) 
+    const listArray = myList.map((list) => list.toObject());
 
-    res.render('todolist', {listArray});
+// Array for complete tasks
+    const completeList = await List.find({ complete: true, }) 
+    const completedArray = completeList.map((list) => list.toObject());
+
+    res.render('todolist', {listArray, completedArray});
 });
 
 router.post('/', async (req, res) => {
