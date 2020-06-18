@@ -1,0 +1,28 @@
+<h2>Add to the list</h2>
+{{ errorMessage }}
+<form action="/todolist" method="post">
+    <input type="text" name="item" placeholder="new item">
+    <input type="submit" value="submit">
+</form>
+<br />
+<h2>Your To Do list</h2>
+<br />
+<ul>
+    {{#each listArray}}
+        <li>
+            {{ this.item }} 
+            <form action="/del" method="post">
+                <button type="submit" class="remove-button" name="remove" value="{{this._id}}" >Delete</button>
+            </form>
+        </li>
+    {{/each}}
+</ul>
+<br />
+<h3>Completed tasks</h3>
+<ul>
+    {{#each completedArray}}
+        <li>
+            {{ this.item }}
+        </li>
+    {{/each}}
+</ul>

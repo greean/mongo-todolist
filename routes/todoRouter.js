@@ -14,6 +14,14 @@ router.get('/', async (req, res) => {
     res.render('todolist', {listArray, completedArray});
 });
 
+// router.post('/', async(req,res)=>{
+//     console.log(req.body);
+//     let objectID = req.body.delete;
+//     console.log(objectID);
+//     // let deleteItem = await List.findByIdAndDelete({_id: objectID});
+//     res.redirect('/');
+//     })
+
 router.post('/', async (req, res) => {
     let { item, complete } = req.body;
 

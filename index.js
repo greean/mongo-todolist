@@ -12,6 +12,7 @@ const indexRouter = require('./routes/indexRouter');
 const todoRouter = require('./routes/todoRouter');
 const removeRouter = require('./routes/removeRouter');
 const updateRouter = require('./routes/updateRouter');
+const deleteRouter = require('./routes/deleteRouter');
 
 mongoose.connect(`${process.env.databaseURL}`, {
     useNewUrlParser: true,
@@ -33,6 +34,7 @@ app.use('/', indexRouter);
 app.use('/todolist', todoRouter);
 app.use('/remove', removeRouter);
 app.use('/update', updateRouter);
+app.use('/delete', deleteRouter);
 
 //localhost:3010/ - indexRouter
 //localhost:3010/todolist/ - todoRouter
