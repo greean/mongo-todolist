@@ -2,22 +2,30 @@
 {{ errorMessage }}
 <form action="/todolist" method="post">
     <input type="text" name="item" placeholder="new item">
-    {{!-- <input type="text" name="complete" placeholder="complete"> --}}
     <input type="submit" value="submit">
 </form>
 <br />
 <h2>Your To Do list</h2>
 <br />
-<ul>
+<table class="center">
+    <tr>
+        <th scope="col">Task</th>
+        <th scope="col">Delete</th>
+        <th scope="col">Completed</th>
+    </tr>
     {{#each listArray}}
-        <li>
-            {{ this.item }} 
-            {{!-- <form action="/todolist" method="post">
-                <input type="submit" value="complete">
-            </form> --}}
-        </li>
+        <tr>
+            <td>{{ this.item }}</td>
+            <td>
+                <form action="/delete" method="post">
+                    <button type="submit" class="remove-button" name="delete" value="{{this._id}}" >X</button>
+                </form>
+            </td>
+            <td>{{ this.complete }}</td>
+        </tr>
     {{/each}}
-</ul>
+</table>
+
 <br />
 <h3>Completed tasks</h3>
 <ul>
