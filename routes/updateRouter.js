@@ -7,14 +7,14 @@ router.get('/', async (req, res) => {
     let listArray = myList.map((list) => list.toObject());
     // console.log(listArray);
 
-    res.render('remove', {listArray});
+    res.render('update', {listArray});
 });
 
 router.post('/', async (req, res) => {
     let { item, complete } = req.body;
 
     // DELETING ITEMS
-    let itemExists = await List.findOneAndDelete({ item });
+    let itemExists = await List.findOneAndUpdate({ item });
 
     if (!itemExists){
         let err = new Error(
@@ -23,7 +23,7 @@ router.post('/', async (req, res) => {
         err.status = 400;
         console.log(err)
 
-        res.render('remove', {
+        res.render('update', {
             errorMessage: `${item}: That item does not exist`
         });
         return;
@@ -34,8 +34,8 @@ router.post('/', async (req, res) => {
         complete: false
     })
 
-    await list.remove(); // .save() to add an item || .remove to delete an item
-    res.redirect('remove');
+    await list.update(); // .save() to add an item || .remove to delete an item
+    res.redirect('update');
 })
 
 module.exports = router;
